@@ -246,18 +246,6 @@ ul { list-style: none; }
 .feature-list__item strong { color: var(--brand-cream); font-weight: 600; }
 @media (max-width: 900px) { .feature-image__inner { grid-template-columns: 1fr; gap: 40px; } }
 
-/* ── TESTIMONIAL ── */
-.testimonial { padding: 100px 0; background: var(--brand-brown); position: relative; overflow: hidden; }
-.testimonial::after {
-  content: ''; position: absolute; top: -60px; right: -60px;
-  width: 300px; height: 300px; border: 40px solid rgba(242,242,220,0.06);
-  border-radius: 50%; pointer-events: none;
-}
-.testimonial__inner { max-width: 760px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
-.testimonial__quote { font-family: var(--ff-display); font-size: clamp(1.25rem, 2.5vw, 1.75rem); line-height: 1.45; color: var(--brand-cream); margin-bottom: 32px; }
-.testimonial__author { font-size: 0.9375rem; font-weight: 600; color: var(--brand-cream); }
-.testimonial__role { font-size: 0.8125rem; color: rgba(242,242,220,0.65); margin-top: 4px; }
-
 /* ── CTA ── */
 .cta { padding: 120px 0; background: var(--dark-bg); text-align: center; position: relative; }
 .cta::before {
@@ -280,6 +268,33 @@ ul { list-style: none; }
 .footer__links a:hover { color: var(--brand-cream); }
 @media (max-width: 600px) { .footer__inner { flex-direction: column; text-align: center; } }
 
+/* ── COMPLIANCE / EUDR ── */
+.compliance { padding: 120px 0; background: var(--slate); position: relative; overflow: hidden; }
+.compliance::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(242,242,220,0.08), transparent); }
+.compliance__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.compliance__text .section-tag { margin-bottom: 16px; }
+.compliance__text h2 { font-family: var(--ff-display); font-size: clamp(1.75rem, 3vw, 2.5rem); color: var(--brand-cream); line-height: 1.15; margin-bottom: 20px; }
+.compliance__text > p { font-size: 1.0625rem; line-height: 1.65; color: rgba(242,242,220,0.6); margin-bottom: 32px; }
+.compliance__cards { display: flex; flex-direction: column; gap: 16px; }
+.compliance__card { background: rgba(242,242,220,0.03); border: 1px solid rgba(242,242,220,0.07); border-radius: 12px; padding: 24px 28px; position: relative; overflow: hidden; transition: border-color 0.3s, background 0.3s; }
+.compliance__card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--accent-green); border-radius: 3px 0 0 3px; }
+.compliance__card:hover { border-color: rgba(63,142,87,0.25); background: rgba(242,242,220,0.05); }
+.compliance__card h4 { font-family: var(--ff-display); font-size: 1.0625rem; color: var(--brand-cream); margin-bottom: 8px; }
+.compliance__card p { font-size: 0.875rem; line-height: 1.6; color: rgba(242,242,220,0.55); margin: 0; }
+.compliance__detail { display: flex; flex-direction: column; gap: 24px; }
+.compliance__regulation { background: rgba(137,87,61,0.12); border: 1px solid rgba(137,87,61,0.2); border-radius: 16px; padding: 32px; }
+.compliance__regulation-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--brand-brown); border-radius: 6px; padding: 4px 12px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--brand-cream); margin-bottom: 20px; }
+.compliance__regulation h3 { font-family: var(--ff-display); font-size: 1.25rem; color: var(--brand-cream); margin-bottom: 12px; line-height: 1.3; }
+.compliance__regulation p { font-size: 0.9375rem; line-height: 1.65; color: rgba(242,242,220,0.6); margin-bottom: 20px; }
+.compliance__obligation-list { display: flex; flex-direction: column; gap: 10px; }
+.compliance__obligation { display: flex; align-items: flex-start; gap: 12px; font-size: 0.875rem; color: rgba(242,242,220,0.6); line-height: 1.5; }
+.compliance__obligation-dot { width: 6px; height: 6px; background: var(--accent-green); border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+.compliance__obligation strong { color: var(--brand-cream); font-weight: 600; }
+.compliance__cta-note { background: rgba(63,142,87,0.06); border: 1px solid rgba(63,142,87,0.15); border-radius: 12px; padding: 24px 28px; }
+.compliance__cta-note p { font-size: 0.9375rem; line-height: 1.6; color: rgba(242,242,220,0.7); margin: 0; }
+.compliance__cta-note strong { color: var(--brand-cream); }
+@media (max-width: 900px) { .compliance__inner { grid-template-columns: 1fr; gap: 48px; } }
+
 /* ── SCROLL REVEAL ── */
 .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s cubic-bezier(.22,1,.36,1), transform 0.7s cubic-bezier(.22,1,.36,1); }
 .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -296,6 +311,7 @@ ul { list-style: none; }
     <div class="nav__links">
       <a href="#features">Features</a>
       <a href="#how-it-works">How It Works</a>
+      <a href="#compliance">Compliance</a>
       <a href="#about">About</a>
       <a href="#contact" class="nav__cta">Book a Demo</a>
     </div>
@@ -307,6 +323,7 @@ ul { list-style: none; }
 <div class="nav__mobile-menu" id="mobileMenu">
   <a href="#features" class="mobile-link">Features</a>
   <a href="#how-it-works" class="mobile-link">How It Works</a>
+  <a href="#compliance" class="mobile-link">Compliance</a>
   <a href="#about" class="mobile-link">About</a>
   <a href="#contact" class="mobile-link">Book a Demo</a>
 </div>
@@ -381,7 +398,7 @@ ul { list-style: none; }
       <div class="step reveal"><div class="step__number">1</div><h4>Induction</h4><p>Cattle arrive. Tags scanned. NLIS transfers recorded automatically from yard to system.</p></div>
       <div class="step reveal"><div class="step__number">2</div><h4>Feedlot</h4><p>Pen movements, treatments, and feed records linked to each animal. Zero manual entry.</p></div>
       <div class="step reveal"><div class="step__number">3</div><h4>Processing</h4><p>Kill-floor traceability from receival to carton. Chain of custody maintained without gaps.</p></div>
-      <div class="step reveal"><div class="step__number">4</div><h4>Export</h4><p>Compliance documents and export certificates generated automatically. Market access assured.</p></div>
+      <div class="step reveal"><div class="step__number">4</div><h4>Export</h4><p>Signed DDS packages, ESCAS documentation, and export certificates generated automatically for EU and other markets. Every establishment on record. Market access assured.</p></div>
     </div>
   </div>
 </section>
@@ -407,12 +424,67 @@ ul { list-style: none; }
   </div>
 </section>
 
-<!-- TESTIMONIAL -->
-<section class="testimonial">
-  <div class="container testimonial__inner reveal">
-    <p class="testimonial__quote">"We used to lose a full day before every audit pulling records together. Now I generate the report in five minutes and get back to actually running the feedlot."</p>
-    <p class="testimonial__author">James Harrington</p>
-    <p class="testimonial__role">Operations Manager — 18,000 head feedlot, Central QLD</p>
+
+
+<!-- COMPLIANCE / EUDR -->
+<section class="compliance" id="compliance">
+  <div class="container compliance__inner">
+    <div class="compliance__text reveal">
+      <span class="section-tag">Compliance</span>
+      <h2>Built for the regulations that matter most</h2>
+      <p>BeefTrace handles the compliance obligations that are hardest to manage manually — from NLIS traceability through to EUDR due diligence statements. One system, every requirement, zero gaps.</p>
+      <div class="compliance__cards">
+        <div class="compliance__card">
+          <h4>NLIS — National Livestock Identification System</h4>
+          <p>Every PIC-to-PIC movement recorded automatically. No manual database entries. Full audit trail from induction to kill floor, compliant with mandatory Australian requirements.</p>
+        </div>
+        <div class="compliance__card">
+          <h4>ESCAS — Exporter Supply Chain Assurance System</h4>
+          <p>Movement records, handling documentation, and supply chain attestations generated from operational data. Export compliance handled in the background.</p>
+        </div>
+        <div class="compliance__card">
+          <h4>LPA — Livestock Production Assurance</h4>
+          <p>Property and animal data integrated with LPA accreditation requirements. Geolocation data captured and retained per LPA Geolocation Tool standards.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="compliance__detail reveal">
+      <div class="compliance__regulation">
+        <span class="compliance__regulation-tag">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M6 4v2.5L7.5 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          EU Regulation 2023/1115 — EUDR
+        </span>
+        <h3>Every establishment. Whole of life. No minimum dwell time.</h3>
+        <p>The EU Deforestation Regulation requires Australian feedlots and processors supplying EU beef markets to provide a complete record of every premises where cattle were kept — from birth property to kill floor — packaged as a verifiable Due Diligence Statement.</p>
+        <div class="compliance__obligation-list">
+          <div class="compliance__obligation">
+            <span class="compliance__obligation-dot"></span>
+            <span><strong>Whole-of-life establishment records.</strong> Every property the animal passed through — breeder, backgrounder, saleyard, feedlot, processor — captured automatically via NLIS integration.</span>
+          </div>
+          <div class="compliance__obligation">
+            <span class="compliance__obligation-dot"></span>
+            <span><strong>WGS-84 geolocation per establishment.</strong> Coordinates ingested from the LPA Geolocation Tool for every PIC, validated to six decimal places, stored against the animal record.</span>
+          </div>
+          <div class="compliance__obligation">
+            <span class="compliance__obligation-dot"></span>
+            <span><strong>Deforestation assessment per coordinate.</strong> Each establishment assessed against satellite imagery. Status cached and flagged for re-check when the retention window expires.</span>
+          </div>
+          <div class="compliance__obligation">
+            <span class="compliance__obligation-dot"></span>
+            <span><strong>Signed DDS package per consignment.</strong> JSON + GeoJSON bundle with a human-readable PDF sidecar. Cryptographically sealed, timestamped, and retained for the full five-year regulatory window.</span>
+          </div>
+          <div class="compliance__obligation">
+            <span class="compliance__obligation-dot"></span>
+            <span><strong>Pre-flight gap detection.</strong> Chain-of-custody checks and geolocation completeness verified before the package generates. Missing data surfaced and resolved before the kill, not after.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="compliance__cta-note">
+        <p><strong>December 2026 application date.</strong> Australian feedlots and processors supplying EU markets need their due diligence systems operational before the first shipment under the new regime. BeefTrace is the operational layer that makes that possible — without adding headcount or manual process.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -421,7 +493,7 @@ ul { list-style: none; }
   <div class="container cta__inner reveal">
     <h2>Let us show you with<br>your own cattle data</h2>
     <p>15 minutes. Your data. See why operators stop chasing paperwork after the first demo.</p>
-    <a href="#" class="btn-primary">Book a 15-Minute Demo
+    <a href="mailto:book@beeftrace.com.au?subject=Book%20a%20Demo" class="btn-primary">Book a 15-Minute Demo
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
   </div>
